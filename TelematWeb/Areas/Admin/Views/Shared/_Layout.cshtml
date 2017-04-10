@@ -1,0 +1,102 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel Administración</title>
+@Html.DevExpress().GetStyleSheets(
+        new StyleSheet { ExtensionSuite = ExtensionSuite.NavigationAndLayout },
+new StyleSheet { ExtensionSuite = ExtensionSuite.PivotGrid },
+new StyleSheet { ExtensionSuite = ExtensionSuite.SpellChecker },
+new StyleSheet { ExtensionSuite = ExtensionSuite.Editors },
+new StyleSheet { ExtensionSuite = ExtensionSuite.VerticalGrid },
+new StyleSheet { ExtensionSuite = ExtensionSuite.Spreadsheet },
+new StyleSheet { ExtensionSuite = ExtensionSuite.Chart },
+new StyleSheet { ExtensionSuite = ExtensionSuite.Report },
+new StyleSheet { ExtensionSuite = ExtensionSuite.GridView },
+new StyleSheet { ExtensionSuite = ExtensionSuite.TreeList }
+)
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/MyCustmomSite.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+
+    @Html.DevExpress().GetScripts(
+        new Script { ExtensionSuite = ExtensionSuite.NavigationAndLayout },
+new Script { ExtensionSuite = ExtensionSuite.PivotGrid },
+new Script { ExtensionSuite = ExtensionSuite.SpellChecker },
+new Script { ExtensionSuite = ExtensionSuite.Editors },
+new Script { ExtensionSuite = ExtensionSuite.VerticalGrid },
+new Script { ExtensionSuite = ExtensionSuite.Spreadsheet },
+new Script { ExtensionSuite = ExtensionSuite.Chart },
+new Script { ExtensionSuite = ExtensionSuite.Report },
+new Script { ExtensionSuite = ExtensionSuite.GridView },
+new Script { ExtensionSuite = ExtensionSuite.TreeList }
+    )
+    
+    <script src="~/Scripts/modernizr-2.6.2.js"></script>
+</head>
+<body> 
+    <div class="navbar navbar-inverse ">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Panel de Administración", "Index", "Home", new { area = "Admin" }, new { @class = "navbar-brand" })
+              
+            </div>
+            
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                </ul>
+            </div>
+        </div>
+    </div>    
+    
+    <div class="container body-content">
+        <div id="menuNav">
+            <img src="~/Content/Images/Components/solred-telemat.jpg" id="foto-menu-top" />
+            @Html.Partial("_adminNavigation")          
+        </div>
+
+            <div id="principal">
+                @RenderBody()
+            </div>
+        </div>
+
+    <hr />
+    <footer>
+        
+        <div class="footerDown">
+            <div class="container">
+                <p>&copy CloudTelemat @DateTime.Today.Year.ToString() All Rights Reserved. <a href="#">Política de Privacidad</a> | <a href="#">Términos de Uso</a></p>
+            </div>
+        </div>
+    </footer>
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+<style>
+    #menuNav {
+    clear: both;
+    float: left;
+    margin-left:0;
+    width: 20%;
+    }
+    #principal {
+    float: left;
+    width: 80%;
+    }
+    #pie {
+    clear: both;
+    }
+    #foto-menu-top {
+    padding-right:20px;
+    padding-bottom:20px;
+    width:100%;
+    }
+</style>
+    
+</body>
+</html>

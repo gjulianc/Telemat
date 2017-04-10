@@ -1,0 +1,61 @@
+﻿@using System.Web.UI.WebControls
+<script type="text/javascript">
+    function PrepareTimeValue(value) {
+        if(value < 10)
+            value = "0" + value;
+        return value;
+    }
+    function UpdateTime() {
+        var dateTime = new Date();
+        var timeString = PrepareTimeValue(dateTime.getHours()) + ":" + PrepareTimeValue(dateTime.getMinutes()) + ":" + PrepareTimeValue(dateTime.getSeconds());
+        timeLabel.SetText(timeString);
+    }
+    function OnInit(s, e) {
+        window.setInterval(UpdateTime, 1000);
+        UpdateTime();
+    }
+</script>
+<div class="timeContainer">
+    @Html.DevExpress().Label(
+        settings =>
+        {
+            settings.Name = "timeLabel";
+            settings.ControlStyle.Font.Bold = true;
+            settings.ControlStyle.Font.Size = FontUnit.XLarge;
+            settings.Properties.ClientSideEvents.Init = "OnInit";
+        }
+    ).GetHtml()
+</div>
+<div class="dateContainer">
+    @Html.DevExpress().Label(
+        settings =>
+        {
+            settings.Name = "dateLabel";
+            settings.ControlStyle.Font.Size = 14;
+            settings.PreRender = (sender, e) =>
+            {
+                MVCxLabel dateLabel = (MVCxLabel)sender;
+                dateLabel.Text = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day).ToLongDateString();
+            };
+        }
+    ).GetHtml()
+</div>
+
+<div class="button">
+
+    @Html.DevExpress().Button(settings =>
+    {
+        settings.Name = "BtnActualizarFecha";
+        settings.Text = "Actualizar Fecha y Hora";
+        settings.UseSubmitBehavior = true;
+    }).GetHtml()
+
+
+</div>
+
+<style>
+    .button{
+        padding-top:25px;
+    }
+</style>
+

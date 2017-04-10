@@ -1,0 +1,80 @@
+﻿
+@Html.DevExpress().NavBar(settings =>
+{
+    settings.Name = "NavBarAdministracion";
+    settings.AutoCollapse = true;
+    settings.EnableAnimation = true;
+    settings.AllowSelectItem = true;
+    settings.AccessibilityCompliant = true;
+
+    settings.Groups.Add(group =>
+    {
+        group.Text = "Comunicaciones";
+        group.Items.Add("Cargar Transacciones");
+        group.Items.Add("Cargar Listas de Vehículos");
+        group.Items.Add("Actualizar Fecha y Hora", "fecha", "", DevExpressHelper.GetUrl(new { Controller = "EstablecerHora", Action = "Index", Area = "Admin" }));
+
+        group.Items.Add("Códigos SOLRED");
+    });
+    settings.Groups.Add(group =>
+    {
+        group.Text = "Informes";
+        group.Items.Add("Transacciones");
+        //group.Items.Add("Consumo por Base Usuario");
+        //group.Items.Add("Consumo por Vehículo");
+        //group.Items.Add("Consumo por Usuario Vehículo");
+        //group.Items.Add("Consumo Medio por Vehículo");
+        //group.Items.Add("Consumo Medio por Hora");
+        //group.Items.Add("Comsumo por Manguera");
+        group.Items.Add("Estado de los Depósitos", "depositos", "", DevExpressHelper.GetUrl(new { Controller = "EstadoDepositos", Action = "Index", Area = "Admin" }));
+        //group.Items.Add("Entrega de Pedidos");
+        //group.Items.Add("Usuarios / Vehículos");
+        //group.Items.Add("Vehículos / CAE");
+        //group.Items.Add("Mantenimiento Vehículos");
+
+    });
+    settings.Groups.Add(group =>
+    {
+        //group.Text = "Utilidades";
+        //group.Items.Add("Importar Transacciones ISA");
+        //group.Items.Add("Importar Transacciones");
+        //group.Items.Add("Exportar Transacciones");
+        //group.Items.Add("Importar Fichero");
+        //group.Items.Add("Exportar Fichero");
+        //group.Items.Add("Importar Fichero GESPROWIN");
+        //group.Items.Add("Exportar Fichero Excel");
+        //group.Items.Add("Exportar Fichero Oracle");
+        //group.Items.Add("Exportar Datos Hacienda GP");
+        //group.Items.Add("Exportar Datos Hacienda Veh");
+        //group.Items.Add("Importar Vehículos");
+        //group.Items.Add("Archivar Datos");
+        //group.Items.Add("Desarchivar Datos");
+        //group.Items.Add("Exportar Ficheros EMT");
+    });
+    settings.Groups.Add(group =>
+    {
+        group.Text = "Mantenimiento";
+
+        group.Items.Add("Bases");
+        group.Items.Add("Transacciones","transaccion", "", DevExpressHelper.GetUrl(new { Controller = "Transacciones", Action = "Index", Area = "Admin" }) );
+        //group.Items.Add("Usuarios y Vehículos");
+        //group.Items.Add("Tarjetas y Vehículos");
+        //group.Items.Add("Hacienda y Vehículos");
+        //group.Items.Add("Mantenimiento Vehículos");
+        //group.Items.Add("Listas Negras");
+        //group.Items.Add("Códigos SOLRED");
+        //group.Items.Add("Proveedores");
+        //group.Items.Add("Entrega de Carburantes");
+        //group.Items.Add("Asignar Precios a Carburantes");
+        //group.Items.Add("Cargar Fichero SOLRED");
+        //group.Items.Add("Inventario de Registros");
+        //group.Items.Add("Administración de Transacciones");
+    });
+    settings.Groups.Add(group =>
+    {
+        group.Text = "Configuración";
+        //group.Items.Add("Grupos de Usuarios");
+        //group.Items.Add("Usuarios Sistema");
+    });
+}).GetHtml()
+

@@ -1,0 +1,31 @@
+@{ ViewBag.Title = "Home"; }
+<div class="container-fluid">
+    <div class="row">
+        @Html.DevExpress().ImageSlider(s => {
+            s.Name = "ImageSlider";
+            s.Width = Unit.Percentage(100);
+            s.Height = Unit.Pixel(400);
+
+            s.SettingsImageArea.ImageSizeMode = ImageSizeMode.FillAndCrop;
+            s.SettingsImageArea.NavigationButtonVisibility = ElementVisibilityMode.Always;
+            s.SettingsImageArea.EnableLoopNavigation = true;
+            s.SettingsNavigationBar.Mode = NavigationBarMode.Dots;
+
+            s.SettingsSlideShow.AutoPlay = true;
+            s.SettingsSlideShow.PlayPauseButtonVisibility = ElementVisibilityMode.OnMouseOver;
+        }).BindToFolder("~/Content/Images/SliderPrincipal").GetHtml()
+    </div>
+</div>
+<div class="container">
+    <section class="row text-center">
+        <div class="col-md-12">
+            <h1>Solred TELEMAT</h1>
+            <p class="mainText">Solred TELEMAT es un sistema que sólo permite repostar a vehículos y carburantes autorizados, así evitará cualquier posibilidad de error en el repostaje. Se trata de un microchip instalado en el vehículo que envía a la estación de servicio la información necesaria para identificar matrícula, cliente, tipo de carburante e importe.
+
+Con este sistema no será necesario que el conductor pase por caja, además la seguridad y control en todos sus vehículos estará garantizada.
+
+Solred ofrece a sus clientes el horizonte más nuevo, eficaz, seguro, rápido y cómodo para su flota. Repsol intenta superarse día a día para conseguir el mejor control y rentabilidad para su negocio. Todo con la garantía de un sistema líder en su sector. </p>
+        </div>
+       
+    </section>
+</div>

@@ -1,0 +1,228 @@
+﻿@model TelematWeb.Areas.Admin.Models.FormsViewModel.TransaccionFilterViewModel
+
+<hr style="margin-top:0px"/>
+<p style="font-size:2em;color:orange; text-align:center">Filtro</p>
+<hr />
+@using (Html.BeginForm("ApplyFilter","Transacciones", FormMethod.Post))
+{
+    @Html.DevExpress().FormLayout(settings =>
+{
+    settings.Name = "FilterForm";
+    settings.SettingsAdaptivity.AdaptivityMode = FormLayoutAdaptivityMode.SingleColumnWindowLimit;
+    settings.SettingsAdaptivity.SwitchToSingleColumnAtWindowInnerWidth = 800;
+    settings.ControlStyle.CssClass = "formLayout";
+    settings.Items.AddGroupItem(m => m.Base, g =>
+    {
+        g.GroupBoxDecoration = GroupBoxDecoration.Box;
+       
+        //Base
+        g.Items
+            .Add(m =>
+            {
+                m.Caption = "Base:";
+                m.CaptionSettings.Location = LayoutItemCaptionLocation.Top;
+                m.CaptionSettings.AssociatedNestedExtensionName = "TransaccionFilterViewModel.Base";
+            })
+            .SetNestedContent(() =>
+            {
+                Html.DevExpress().TextBoxFor(i => i.Base, s =>
+                {
+                    //s.Width = 170;
+                    s.ShowModelErrors = true;
+                    //s.Properties.NullText = "Base";
+                    //s.Properties.HelpText = "Introduzca Base";
+                    s.Properties.ValidationSettings.ErrorDisplayMode = ErrorDisplayMode.ImageWithTooltip;
+                    s.Properties.ValidationSettings.Display = Display.Dynamic;
+                    s.Properties.ValidationSettings.ErrorText = "*";
+                }).Render();
+            });
+
+        //Fecha Desde
+        g.Items
+            .Add(m =>
+            {
+                m.Caption = "Fecha Desde:";
+                m.CaptionSettings.Location = LayoutItemCaptionLocation.Top;
+                m.CaptionSettings.AssociatedNestedExtensionName = "TransaccionFilterViewModel.FechaDesde";
+            })
+            .SetNestedContent(() =>
+            {
+                Html.DevExpress().DateEditFor(i => i.FechaDesde, s =>
+                {
+                    s.Width = 170;
+                    s.ShowModelErrors = true;
+                    s.Properties.ValidationSettings.ErrorDisplayMode = ErrorDisplayMode.ImageWithTooltip;
+                    s.Properties.ValidationSettings.Display = Display.Dynamic;
+                    s.Properties.ValidationSettings.ErrorText = "*";
+                }).Render();
+            });
+
+        //Fecha Hasta
+        g.Items
+            .Add(m =>
+            {
+                m.Caption = "Fecha Hasta";
+                m.CaptionSettings.Location = LayoutItemCaptionLocation.Top;
+                m.CaptionSettings.AssociatedNestedExtensionName = "TransaccionFilterViewModel.FechaHasta";
+            })
+            .SetNestedContent(() =>
+            {
+                Html.DevExpress().DateEditFor(i => i.FechaHasta, s =>
+                {
+                    //s.Width = 170;
+                    s.ShowModelErrors = true;
+                    s.Properties.ValidationSettings.ErrorDisplayMode = ErrorDisplayMode.ImageWithTooltip;
+                    s.Properties.ValidationSettings.Display = Display.Dynamic;
+                    s.Properties.ValidationSettings.ErrorText = "*";
+                }).Render();
+            });
+
+        //Registro Desde
+        g.Items
+            .Add(m =>
+            {
+                m.Caption = "Registro Desde";
+                m.CaptionSettings.Location = LayoutItemCaptionLocation.Top;
+                m.CaptionSettings.AssociatedNestedExtensionName = "TransaccionFilterViewModel.RegistroDesde";
+            })
+            .SetNestedContent(() =>
+            {
+                Html.DevExpress().TextBoxFor(i => i.RegistroDesde, s =>
+                {
+                    //s.Width = 170;
+                    s.ShowModelErrors = true;
+                    s.Properties.ValidationSettings.ErrorDisplayMode = ErrorDisplayMode.ImageWithTooltip;
+                    s.Properties.ValidationSettings.Display = Display.Dynamic;
+                    s.Properties.ValidationSettings.ErrorText = "*";
+                }).Render();
+            });
+
+        //Registro Hasta
+        g.Items
+            .Add(m =>
+            {
+                m.Caption = "Registro Hasta";
+                m.CaptionSettings.Location = LayoutItemCaptionLocation.Top;
+                m.CaptionSettings.AssociatedNestedExtensionName = "TransaccionFilterViewModel.RegistroHasta";
+            })
+            .SetNestedContent(() =>
+            {
+                Html.DevExpress().TextBoxFor(i => i.RegistroHasta, s =>
+                {
+                    //s.Width = 170;
+                    s.ShowModelErrors = true;
+                    s.Properties.ValidationSettings.ErrorDisplayMode = ErrorDisplayMode.ImageWithTooltip;
+                    s.Properties.ValidationSettings.Display = Display.Dynamic;
+                    s.Properties.ValidationSettings.ErrorText = "*";
+                }).Render();
+            });
+
+        //Carburante
+        g.Items
+            .Add(m =>
+            {
+                m.Caption = "Carburante";
+                m.CaptionSettings.Location = LayoutItemCaptionLocation.Top;
+                m.CaptionSettings.AssociatedNestedExtensionName = "TransaccionFilterViewModel.Carburante";
+            })
+            .SetNestedContent(() =>
+            {
+                Html.DevExpress().TextBoxFor(i => i.Carburante, s =>
+                {
+                    //s.Width = 170;
+                    s.ShowModelErrors = true;
+                    //s.Properties.NullText = "Carburante";
+                    s.Properties.ValidationSettings.ErrorDisplayMode = ErrorDisplayMode.ImageWithTooltip;
+                    s.Properties.ValidationSettings.Display = Display.Dynamic;
+                    s.Properties.ValidationSettings.ErrorText = "*";
+                }).Render();
+            });
+
+        //Modo Uso
+        g.Items
+            .Add(m =>
+            {
+                m.Caption = "Modo Uso";
+                m.CaptionSettings.Location = LayoutItemCaptionLocation.Top;
+                m.CaptionSettings.AssociatedNestedExtensionName = "TransaccionFilterViewModel.ModoUso";
+            })
+            .SetNestedContent(() =>
+            {
+                Html.DevExpress().TextBoxFor(i => i.ModoUso, s =>
+                {
+                    //s.Width = 170;
+                    s.ShowModelErrors = true;
+                    s.Properties.ValidationSettings.ErrorDisplayMode = ErrorDisplayMode.ImageWithTooltip;
+                    s.Properties.ValidationSettings.Display = Display.Dynamic;
+                    s.Properties.ValidationSettings.ErrorText = "*";
+                }).Render();
+            });
+
+
+        //Litros Desde
+        g.Items
+            .Add(m =>
+            {
+                m.Caption = "Litros Desde";
+                m.CaptionSettings.Location = LayoutItemCaptionLocation.Top;
+                m.CaptionSettings.AssociatedNestedExtensionName = "TransaccionFilterViewModel.LitrosDesde";
+            })
+            .SetNestedContent(() =>
+            {
+                Html.DevExpress().TextBoxFor(i => i.LitrosDesde, s =>
+                {
+                    //s.Width = 170;
+                    s.ShowModelErrors = true;
+                    //s.Properties.NullText = "Litros Hasta";
+                    s.Properties.ValidationSettings.ErrorDisplayMode = ErrorDisplayMode.ImageWithTooltip;
+                    s.Properties.ValidationSettings.Display = Display.Dynamic;
+                    s.Properties.ValidationSettings.ErrorText = "*";
+                }).Render();
+            });
+
+        //Litros Hasta
+        g.Items
+            .Add(m =>
+            {
+                m.Caption = "Litros Hasta";
+                m.CaptionSettings.Location = LayoutItemCaptionLocation.Top;
+                m.CaptionSettings.AssociatedNestedExtensionName = "TransaccionFilterViewModel.LitrosHasta";
+            })
+            .SetNestedContent(() =>
+            {
+                Html.DevExpress().TextBoxFor(i => i.LitrosHasta, s =>
+                {
+                    //s.Width = 170;
+                    s.ShowModelErrors = true;
+                    //s.Properties.NullText = "Litros Hasta";
+                    s.Properties.ValidationSettings.ErrorDisplayMode = ErrorDisplayMode.ImageWithTooltip;
+                    s.Properties.ValidationSettings.Display = Display.Dynamic;
+                    s.Properties.ValidationSettings.ErrorText = "*";
+                }).Render();
+            });
+        
+        //Botón Aplicar
+        g.Items
+        .Add(m =>
+        {
+            m.Caption = " ";
+            m.NestedExtension().Button(s =>
+            {
+                s.Name = "Submit";
+                s.Text = "Aplicar";
+                s.UseSubmitBehavior = true;
+            });
+        });
+    });
+}).GetHtml()
+}
+
+
+
+
+
+
+
+
+
+

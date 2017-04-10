@@ -1,0 +1,74 @@
+@{
+    var grid = Html.DevExpress().GridView(settings => {
+        settings.Name = "GridViewTransacciones";
+        settings.CallbackRouteValues = new { Controller = "Transacciones", Action = "GridViewTransaccionesPartial" };
+
+        settings.SettingsEditing.AddNewRowRouteValues = new { Controller = "Transacciones", Action = "GridViewTransaccionesPartialAddNew" };
+        settings.SettingsEditing.UpdateRowRouteValues = new { Controller = "Transacciones", Action = "GridViewTransaccionesPartialUpdate" };
+        settings.SettingsEditing.DeleteRowRouteValues = new { Controller = "Transacciones", Action = "GridViewTransaccionesPartialDelete" };
+        settings.SettingsEditing.Mode = GridViewEditingMode.EditFormAndDisplayRow;
+        settings.SettingsBehavior.ConfirmDelete = true;
+
+        settings.CommandColumn.Visible = false;
+        settings.CommandColumn.ShowNewButton = true;
+        settings.CommandColumn.ShowDeleteButton = true;
+        settings.CommandColumn.ShowEditButton = true;
+
+        //Filtros
+        settings.SettingsSearchPanel.Visible = true;
+        settings.Settings.ShowHeaderFilterButton = true;
+        settings.SettingsPopup.HeaderFilter.Height = 200;
+        settings.Settings.ShowFilterBar = GridViewStatusBarMode.Visible;
+        settings.SettingsFilterControl.ViewMode = FilterControlViewMode.VisualAndText;
+
+        settings.Settings.ShowFooter = true;
+
+        settings.KeyFieldName = "Id";
+
+        settings.SettingsPager.Visible = true;
+        settings.Settings.ShowGroupPanel = false;
+        settings.Settings.ShowFilterRow = false;
+        settings.SettingsBehavior.AllowSelectByRowClick = true;
+
+        settings.SettingsAdaptivity.AdaptivityMode = GridViewAdaptivityMode.HideDataCells;
+        settings.SettingsAdaptivity.AdaptiveColumnPosition = GridViewAdaptiveColumnPosition.Right;
+        settings.SettingsAdaptivity.AdaptiveDetailColumnCount = 1;
+        settings.SettingsAdaptivity.AllowOnlyOneAdaptiveDetailExpanded = false;
+        settings.SettingsAdaptivity.HideDataCellsAtWindowInnerWidth = 0;
+
+        settings.Width = System.Web.UI.WebControls.Unit.Percentage(100);
+        settings.Styles.AlternatingRow.Enabled = 0;
+
+        /*Propiedades de Paginación*/
+        settings.SettingsPager.PageSize = 20;
+        settings.SettingsPager.LastPageButton.Visible = true;
+        settings.SettingsPager.FirstPageButton.Visible = true;
+        settings.SettingsPager.PageSizeItemSettings.Items = new string[] { "20", "25", "50", "100" };
+        settings.SettingsPager.PageSizeItemSettings.Visible = true;
+
+
+        /*Columnas*/
+        settings.Columns.Add("Id").Visible = false;
+        settings.Columns.Add("SCU");
+        settings.Columns.Add("NumRegistro").Caption = "Registro";
+        settings.Columns.Add("CodCuentaKms").Visible = false;
+        settings.Columns.Add("Fecha");
+        settings.Columns.Add("HorasMotor").Visible = false;
+        settings.Columns.Add("IdEstacion").Visible = false;
+        settings.Columns.Add("IdManguera").Visible = false;
+        settings.Columns.Add("IdVehiculo").Caption = "Vehículo";
+        settings.Columns.Add("IdUsuario").Caption = "Usuario";
+        settings.Columns.Add("Importe").Visible = false;
+        settings.Columns.Add("Litros");
+        settings.Columns.Add("ModoUso").Visible = false;
+        settings.Columns.Add("PPV").Visible = false;
+        settings.Columns.Add("TipoCarburante").Caption = "Carburante";
+        settings.Columns.Add("Kms").Caption = "Kmts";
+        settings.Columns.Add("TipoTransaccion").Visible = false;
+
+    });
+    if (ViewData["EditError"] != null){
+        grid.SetEditErrorText((string)ViewData["EditError"]);
+    }
+}
+@grid.Bind(Model).GetHtml()

@@ -1,0 +1,33 @@
+﻿
+
+@{
+    ViewBag.Title = "Index";
+}
+<h1 class="tituloPagesAdmin">Establecer Fecha & Hora</h1>
+
+<div style="align-content:center">
+    @Html.DevExpress().DockPanel(settings =>
+    {
+        settings.ShowCloseButton = false;
+        settings.Name = "MainDockPanel";
+        settings.HeaderText = "Fecha & Hora";
+        settings.PanelUID = "DateTimeDockZone";
+        settings.Left = 550;
+        settings.Top = 220;
+        settings.Width = 500;
+        settings.AllowedDockState = AllowedDockState.FloatOnly;
+
+        settings.SetContent(() =>
+        {
+            Html.RenderPartial("_DateAndTime");
+        });
+    }).GetHtml()
+
+
+    @Html.DevExpress().DockZone(settings =>
+{
+    settings.Name = "DateTimeDockZone";
+    settings.ZoneUID = "Zone";
+    settings.Width = 500;
+}).GetHtml()
+</div>

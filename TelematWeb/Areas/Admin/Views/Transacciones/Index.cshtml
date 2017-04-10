@@ -1,0 +1,28 @@
+﻿@model System.Collections.IEnumerable
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="principal">
+    <h1 class="tituloPagesAdmin">Informe de Transacciones</h1>
+    <br />
+    <div>
+        @Html.Action("GridViewTransaccionesPartial")
+    </div>
+    
+</div>
+
+@*<div id="Filter">
+        @Html.Partial("_Filter")
+    </div>*@
+
+<style>
+    #Filter {
+        float: left;
+        width: 20%;
+        padding-left:20px;
+    }
+    
+    h2 {font-size:2em;text-align:center}
+    
+</style>

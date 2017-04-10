@@ -1,0 +1,135 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+<h1 class="tituloPagesAdmin">Estado Depósitos</h1>
+
+<div>
+    <table>
+        <thead>
+            <tr>
+                <td>Depósito</td>
+                <td>Estado</td>
+                <td>Litros Actuales</td>
+                <td>Litros Totales</td>
+            </tr>
+        </thead>
+        <tr>
+            <td><h2>Depósito 1</h2></td>
+            <td>
+                <meter id="meter" value="30" max="100" high="75" low="25"></meter>
+            </td>
+            <td><strong>30000</strong></td>
+            <td><strong>45000</strong></td>
+        </tr>
+        <tr>
+            <td><h2>Depósito 2</h2></td>
+            <td>
+                <meter id="meter" value="60" max="100" high="75" low="25"></meter>
+            </td>
+            <td><strong>16500</strong></td>
+            <td><strong>30000</strong></td>
+        </tr>
+    </table>
+</div>
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        $('#max').on('input', function () {
+            $('#meter').prop('max', $('#max').val())
+        });
+
+        $('#min').on('input', function () {
+            $('#meter').prop('min', $('#min').val())
+        });
+
+        $('#value').on('input', function () {
+            $('#meter').prop('value', $('#value').val())
+        });
+
+        $('#high').on('input', function () {
+            $('#meter').prop('high', $('#high').val())
+        });
+
+        $('#low').on('input', function () {
+            $('#meter').prop('low', $('#low').val())
+        });
+
+        $('#optimum').on('input', function () {
+            $('#meter').prop('optimum', $('#optimum').val())
+        });
+
+    });
+</script>
+
+<style>
+    h2 {
+        font-size: 2em;
+        text-align: center;
+    }
+
+    body {
+  
+      font-family: Monaco, serif;
+      font-size: 100%;
+      margin: 0 auto;
+      max-width: 1000px;
+}
+
+dl, dd {
+  
+  margin: 0 0 2.5em;
+}
+
+xmp { 
+  
+  background: #ff8;
+  border: 1px dotted #888;
+  font: 100%/1.75 Consolas, Monaco, monospace;
+  
+  word-spacing: 0;
+  letter-spacing: 0;
+  
+  padding: .5em; 
+}
+
+tr{
+    margin: 5em;
+}
+
+span {
+  
+  color: #c00;
+  font-size: 100%;
+}
+
+#meter {
+  
+  margin: 0  30px  0 30px;
+  width: 450px;
+  height: 50px;
+  display: block;
+}
+
+.live-code {
+  
+  margin: 1em auto 3.5em;
+  display: block;
+  font-size: 1.25em;
+  padding: .5em;
+  background-color: #ddd;
+  text-align: center;
+}
+
+input {
+  
+  border: none;
+  background-color: #ddd;
+  border-bottom: 1px dotted #333;
+  width: 35px;
+  line-height: 1.5;
+  font-size: 1em;
+  color: #c00;
+}
+</style>
