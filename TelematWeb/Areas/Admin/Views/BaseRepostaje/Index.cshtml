@@ -1,0 +1,35 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+
+<h2>Base de Repostaje</h2>
+
+<div>
+    @Html.Action("GridViewBasesPartial")
+</div>
+<div id="map_canvas">
+
+</div>
+
+<script type="text/javascript"
+    src="//maps.googleapis.com/maps/api/js?&sensor=false">
+</script>
+<script type="text/javascript">
+    window.onload = inicializar;
+    //Funcion de incialización del Mapa
+    function inicializar() {
+        alert('Ha entrado en inicializar');
+        //Opciones del mapa
+        var mapOptions = {
+            center: new google.maps.LatLng(40.67022279507346, -4.0858840994238281),
+            zoom: 8,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+
+        //Integramos el mapa en base a las opciones
+        var map = new google.maps.Map(document.getElementById("map_canvas"),
+            mapOptions);
+    }
+</script>
+

@@ -258,6 +258,8 @@
     <Content Include="Areas\Admin\Views\EstablecerHora\Index.cshtml" />
     <Content Include="Areas\Admin\Views\EstablecerHora\_DateAndTime.cshtml" />
     <Content Include="Areas\Admin\Views\EstadoDepositos\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\BaseRepostaje\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\BaseRepostaje\_GridViewBasesPartial.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -342,6 +344,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\AdminBaseController.cs" />
+    <Compile Include="Areas\Admin\Controllers\BaseRepostajeController.cs" />
     <Compile Include="Areas\Admin\Controllers\EstablecerHoraController.cs" />
     <Compile Include="Areas\Admin\Controllers\EstadoDepositosController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />

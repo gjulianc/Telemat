@@ -55,7 +55,7 @@
     {
         group.Text = "Mantenimiento";
 
-        group.Items.Add("Bases");
+        group.Items.Add("Bases", "base", "", DevExpressHelper.GetUrl(new { Controller = "BaseRepostaje", Action = "Index", Area = "Admin" }));
         group.Items.Add("Transacciones","transaccion", "", DevExpressHelper.GetUrl(new { Controller = "Transacciones", Action = "Index", Area = "Admin" }) );
         //group.Items.Add("Usuarios y Vehículos");
         //group.Items.Add("Tarjetas y Vehículos");

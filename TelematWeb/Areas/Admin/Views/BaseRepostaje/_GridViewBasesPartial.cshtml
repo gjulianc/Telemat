@@ -1,0 +1,56 @@
+@{
+    var grid = Html.DevExpress().GridView(settings => {
+        settings.Name = "GridViewBases";
+        settings.CallbackRouteValues = new { Controller = "BaseRepostaje", Action = "GridViewBasesPartial" };
+
+        settings.SettingsEditing.AddNewRowRouteValues = new { Controller = "BaseRepostaje", Action = "GridViewBasesPartialAddNew" };
+        settings.SettingsEditing.UpdateRowRouteValues = new { Controller = "BaseRepostaje", Action = "GridViewBasesPartialUpdate" };
+        settings.SettingsEditing.DeleteRowRouteValues = new { Controller = "BaseRepostaje", Action = "GridViewBasesPartialDelete" };
+        settings.SettingsEditing.Mode = GridViewEditingMode.EditFormAndDisplayRow;
+        settings.SettingsBehavior.ConfirmDelete = true;
+
+        settings.CommandColumn.Visible = true;
+        settings.CommandColumn.ShowNewButtonInHeader = true;
+        settings.CommandColumn.ShowDeleteButton = true;
+        settings.CommandColumn.ShowEditButton = true;
+
+        settings.KeyFieldName = "Id";
+
+        settings.SettingsPager.Visible = true;         
+        settings.SettingsBehavior.AllowSelectByRowClick = true;
+
+        settings.Width = System.Web.UI.WebControls.Unit.Percentage(100);
+        settings.Styles.AlternatingRow.Enabled = 0;
+
+        settings.SettingsAdaptivity.AdaptivityMode = GridViewAdaptivityMode.HideDataCells;
+        settings.SettingsAdaptivity.AdaptiveColumnPosition = GridViewAdaptiveColumnPosition.Right;
+        settings.SettingsAdaptivity.AdaptiveDetailColumnCount = 3;
+        settings.SettingsAdaptivity.AllowOnlyOneAdaptiveDetailExpanded = false;
+        settings.SettingsAdaptivity.HideDataCellsAtWindowInnerWidth = 0;
+
+        settings.Columns.Add("Scu");
+        settings.Columns.Add("Nombre");
+        settings.Columns.Add("Direccion");
+        settings.Columns.Add("Poblacion");
+        settings.Columns.Add("CodigoPostal");
+        settings.Columns.Add("Delegacion");
+        settings.Columns.Add("ZonaHoraria");
+        settings.Columns.Add("Telefono");
+        settings.Columns.Add("PuertoComunicacion");
+        settings.Columns.Add("Baudios");
+        settings.Columns.Add("CodigoFlota");
+        settings.Columns.Add("CodigoControl");
+        settings.Columns.Add("CAE");
+        settings.Columns.Add("Descripcion");
+        settings.Columns.Add("Latitud");
+        settings.Columns.Add("Longitud");
+        settings.Columns.Add("Depositos");
+        settings.Columns.Add("Id");
+        settings.Columns.Add("FechaCreacion");
+        settings.Columns.Add("FechaUltimaActualizacion");
+    });
+    if (ViewData["EditError"] != null){
+        grid.SetEditErrorText((string)ViewData["EditError"]);
+    }
+}
+@grid.Bind(Model).GetHtml()
