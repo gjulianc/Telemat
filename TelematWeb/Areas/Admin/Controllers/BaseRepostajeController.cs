@@ -163,5 +163,12 @@ namespace TelematWeb.Areas.Admin.Controllers
             }
             return PartialView("_GridViewBasesPartial", model);
         }
+
+        //Carga Mapa
+        [ValidateInput(false)]
+        public ActionResult CargarMapaBase()
+        {
+            return PartialView("_Mapa");
+        }
     }
 }
