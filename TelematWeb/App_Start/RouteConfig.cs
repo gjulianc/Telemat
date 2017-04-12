@@ -12,6 +12,12 @@ namespace TelematWeb {
             routes.IgnoreRoute("{resource}.ashx/{*pathInfo}");
 
             routes.MapRoute(
+                name: "Mapa", // Route name
+                url: "{controller}/{action}/{id}", // URL with parameters
+                defaults: new { controller = "BaseRepostaje", action = "CargaMapa", area = "Admin", marker = UrlParameter.Optional } // Parameter defaults
+            );
+
+            routes.MapRoute(
                 name: "Default", // Route name
                 url: "{controller}/{action}/{id}", // URL with parameters
                 defaults: new { controller = "Pages", action = "Home", id = UrlParameter.Optional } // Parameter defaults

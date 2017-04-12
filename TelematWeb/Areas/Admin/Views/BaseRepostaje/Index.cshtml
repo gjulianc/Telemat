@@ -1,22 +1,21 @@
-﻿@{
+﻿@using TelematWeb.Areas.Admin.Models.FormsViewModel
+@{
     ViewBag.Title = "Index";
 }
 
-<h2>Base de Repostaje</h2>
-
+<h2>Bases de Repostaje</h2>
 
 <script type="text/javascript">
 
     function OnGridFocusedRowChanged(s, e) {
         alert('Estamos en la primera funcion');
-        s.GetRowValues(s.GetFocusedRowIndex(), 'Latitud;Longitud', OnGetRowValues);
+        s.GetRowValues(s.GetFocusedRowIndex(), 'Nombre;Latitud;Longitud', OnGetRowValues);
     }
     function OnGetRowValues(values) {
-        alert('Estamos en la segunda funcion' + ' ' + values[0] + ',' + values[1]);
-        var Longitud = document.getElementById("LongitudTtxt");
-        Longitud.value = values[0];
-        var Latitud = document.getElementById("LatitudTtxt");
-        Latitud.value = values[0];
+        alert('Estamos en la base: ' + values[0] + ' ' + values[1] + ',' + values[2]);
+        @ViewData["Nombre"] = values[0]
+        @ViewData["Latitud"] = values[1];
+        @ViewData["Longitud"] = values[2];
     }
 
 </script>
@@ -24,14 +23,17 @@
     @Html.Action("GridViewBasesPartial")    
 </div>
 <br />
-<text id="LatitudTxt"></text>
-<text id="LongitudTxt"></text>
 <br />
 <div >
-   
-   @Html.Action("PageControlPartial")
+    @Html.Action("CargaMapa")
 </div>
 
-
-
-
+@*, new
+    {
+        marker = new MarkerMapBase
+        {
+            Nombre = @ViewData["Nombre"].ToString(),
+            Latitud = @ViewData["Latitud"].ToString(),
+            Longitud = @ViewData["Longitud"].ToString()
+            }
+            })*@

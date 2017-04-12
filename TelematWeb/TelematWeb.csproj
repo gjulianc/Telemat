@@ -352,6 +352,7 @@
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\TransaccionesController.cs" />
     <Compile Include="Areas\Admin\Models\FormsViewModel\FilterBaseViewModel.cs" />
+    <Compile Include="Areas\Admin\Models\FormsViewModel\MarkerMapBase.cs" />
     <Compile Include="Areas\Admin\Models\FormsViewModel\TransaccionFilterViewModel.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\PagesController.BlogPosts.cs" />

@@ -1,39 +1,43 @@
-﻿
+﻿@model TelematWeb.Areas.Admin.Models.FormsViewModel.MarkerMapBase
+
 <div id="map" style="width:900px; height:350px;"></div>
- 
+<label>Nombre: </label>
+<label>@Model.Nombre</label>
+<label>Latitud: </label>
+<label>@Model.Latitud</label>
+<label>Longitud: </label>
+<label>@Model.Longitud</label>
+
 <script id="dxss_myCode2" type="text/javascript">
     window.initMap = function () {
-        var uluru = { lat: @ViewData["Latitud"], lng: @ViewData["Longitud"] };
+        //var uluru = { lat: 40.297166, lng: -3.429771 };
+        var uluru = { lat: @Model.Latitud, lng: @Model.Longitud };
         var map = new google.maps.Map(document.getElementById('map'), {
             zoom: 12,
-            center: uluru
+            center: uluru 
         });
+
+        
         var marker = new google.maps.Marker({
             position: uluru,
             map: map
         });
-    };
+        // Make the marker-pin blue! 
+        marker.setIcon('http://maps.google.com/mapfiles/ms/icons/blue-dot.png')
 
+        // put in some information about each json object - in this case, the opening hours. 
+        var infowindow = new google.maps.InfoWindow({
+            content: "<div class='infoDiv'><h2>" + @Model.Nombre + "</div></div>"
+        });
+        // finally hook up an "OnClick" listener to the map so it pops up out info-window when the marker-pin is clicked! 
+        google.maps.event.addListener(marker, 'click', function () {
+            infowindow.open(map, marker);
+        });
+    };
+    
     MVCxClientGlobalEvents.ControlsInitialized.AddHandler(function (s, e) {
         initMap();
     });
 </script>
 
-<script  async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDc18sN0gVECb_pyMbRd9Qu3sVO7cSqqE4"></script>
-
-
-@*var uluru = { lat: -3.9301617, lng: 40.3216975   };
-        var mapCanvas = document.getElementById('map');
-        var mapOptions = {
-            center: new google.maps.LatLng(40.3216975, -3.9301617),
-            zoom: 8,
-            tilt: 30,
-            zoomControl: true,
-            panControl: false,
-            streetViewControl: false
-        };
-        var marker = new google.maps.Marker({
-            position: new google.maps.LatLng(40.3216975, -3.9301617),
-            map: mapCanvas
-        });
-        var map = new google.maps.Map(mapCanvas, mapOptions);*@
+<script   async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDc18sN0gVECb_pyMbRd9Qu3sVO7cSqqE4"></script>

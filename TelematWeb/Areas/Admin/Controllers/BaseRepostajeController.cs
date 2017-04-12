@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using TelematWeb.Areas.Admin.Models.FormsViewModel;
 
 namespace TelematWeb.Areas.Admin.Controllers
 {
@@ -166,9 +167,11 @@ namespace TelematWeb.Areas.Admin.Controllers
 
         //Carga Mapa
         [ValidateInput(false)]
-        public ActionResult PageControlPartial()
-        {                    
-            return PartialView();
+        public ActionResult CargaMapa()
+        {
+            MarkerMapBase marker = new MarkerMapBase { Nombre = "Argabus", Latitud = "40.297166", Longitud = "-3.429771" };
+            
+            return PartialView("_Mapa", marker);
         }
     }
 }
