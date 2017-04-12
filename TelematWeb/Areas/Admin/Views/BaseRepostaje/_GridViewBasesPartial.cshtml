@@ -16,7 +16,7 @@
 
         settings.KeyFieldName = "Id";
 
-        settings.SettingsPager.Visible = true;         
+        settings.SettingsPager.Visible = true;
         settings.SettingsBehavior.AllowSelectByRowClick = true;
         settings.SettingsBehavior.AllowFocusedRow = true;
 
@@ -51,6 +51,7 @@
         settings.Columns.Add("FechaUltimaActualizacion");
 
         settings.ClientSideEvents.FocusedRowChanged = "OnGridFocusedRowChanged";
+        
     });
     if (ViewData["EditError"] != null){
         grid.SetEditErrorText((string)ViewData["EditError"]);

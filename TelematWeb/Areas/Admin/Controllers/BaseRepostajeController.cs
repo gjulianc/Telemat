@@ -167,9 +167,9 @@ namespace TelematWeb.Areas.Admin.Controllers
 
         //Carga Mapa
         [ValidateInput(false)]
-        public ActionResult CargaMapa()
+        public ActionResult CargaMapa(MarkerMapBase item)
         {
-            MarkerMapBase marker = new MarkerMapBase { Nombre = "Argabus", Latitud = "40.297166", Longitud = "-3.429771" };
+            MarkerMapBase marker = new MarkerMapBase { Nombre = item.Nombre, Latitud = item.Latitud, Longitud = item.Longitud };
             
             return PartialView("_Mapa", marker);
         }

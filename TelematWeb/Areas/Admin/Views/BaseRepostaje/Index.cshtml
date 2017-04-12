@@ -11,11 +11,11 @@
         alert('Estamos en la primera funcion');
         s.GetRowValues(s.GetFocusedRowIndex(), 'Nombre;Latitud;Longitud', OnGetRowValues);
     }
+
     function OnGetRowValues(values) {
         alert('Estamos en la base: ' + values[0] + ' ' + values[1] + ',' + values[2]);
-        @ViewData["Nombre"] = values[0]
-        @ViewData["Latitud"] = values[1];
-        @ViewData["Longitud"] = values[2];
+        document.getElementsByName("nombre").value =  values[0];
+        
     }
 
 </script>
@@ -24,16 +24,16 @@
 </div>
 <br />
 <br />
+ 
 <div >
-    @Html.Action("CargaMapa")
+    @Html.Action("CargaMapa", new
+{
+    item = new MarkerMapBase
+    {
+        Nombre = "Argabus",
+        Latitud = "40.297166",
+        Longitud = "-3.429771"
+    }
+    }))
 </div>
 
-@*, new
-    {
-        marker = new MarkerMapBase
-        {
-            Nombre = @ViewData["Nombre"].ToString(),
-            Latitud = @ViewData["Latitud"].ToString(),
-            Longitud = @ViewData["Longitud"].ToString()
-            }
-            })*@
