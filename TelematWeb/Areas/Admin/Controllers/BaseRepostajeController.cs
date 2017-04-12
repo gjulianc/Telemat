@@ -166,9 +166,9 @@ namespace TelematWeb.Areas.Admin.Controllers
 
         //Carga Mapa
         [ValidateInput(false)]
-        public ActionResult CargarMapaBase()
-        {
-            return PartialView("_Mapa");
+        public ActionResult PageControlPartial()
+        {                    
+            return PartialView();
         }
     }
 }

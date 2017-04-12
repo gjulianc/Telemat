@@ -261,6 +261,7 @@
     <Content Include="Areas\Admin\Views\BaseRepostaje\Index.cshtml" />
     <Content Include="Areas\Admin\Views\BaseRepostaje\_GridViewBasesPartial.cshtml" />
     <Content Include="Areas\Admin\Views\BaseRepostaje\_Mapa.cshtml" />
+    <Content Include="Areas\Admin\Views\BaseRepostaje\PageControlPartial.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />

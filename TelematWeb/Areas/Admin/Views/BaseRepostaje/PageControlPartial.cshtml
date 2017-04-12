@@ -1,0 +1,14 @@
+﻿@Html.DevExpress().PageControl(settings =>
+{
+    settings.Name = "PageControl";
+    settings.CallbackRouteValues = new { Controller = "BaseRepostaje", Action = "PageControlPartial" };
+   
+    settings.TabPages.Add(tp =>
+    {
+        tp.Text = "Ubicación";
+        tp.SetContent(() =>
+        {
+            Html.RenderPartial("_Mapa");
+        });
+    });
+}).GetHtml()

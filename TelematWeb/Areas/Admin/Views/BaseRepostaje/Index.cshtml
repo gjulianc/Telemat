@@ -1,14 +1,37 @@
-﻿
-
-@{
+﻿@{
     ViewBag.Title = "Index";
 }
 
 <h2>Base de Repostaje</h2>
 
-@Html.Action("GridViewBasesPartial")
 
-@Html.Action("CargarMapaBase")
+<script type="text/javascript">
+
+    function OnGridFocusedRowChanged(s, e) {
+        alert('Estamos en la primera funcion');
+        s.GetRowValues(s.GetFocusedRowIndex(), 'Latitud;Longitud', OnGetRowValues);
+    }
+    function OnGetRowValues(values) {
+        alert('Estamos en la segunda funcion' + ' ' + values[0] + ',' + values[1]);
+        var Longitud = document.getElementById("LongitudTtxt");
+        Longitud.value = values[0];
+        var Latitud = document.getElementById("LatitudTtxt");
+        Latitud.value = values[0];
+    }
+
+</script>
+<div >
+    @Html.Action("GridViewBasesPartial")    
+</div>
+<br />
+<text id="LatitudTxt"></text>
+<text id="LongitudTxt"></text>
+<br />
+<div >
+   
+   @Html.Action("PageControlPartial")
+</div>
+
 
 
 

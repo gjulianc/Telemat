@@ -18,6 +18,7 @@
 
         settings.SettingsPager.Visible = true;         
         settings.SettingsBehavior.AllowSelectByRowClick = true;
+        settings.SettingsBehavior.AllowFocusedRow = true;
 
         settings.Width = System.Web.UI.WebControls.Unit.Percentage(100);
         settings.Styles.AlternatingRow.Enabled = 0;
@@ -48,6 +49,8 @@
         settings.Columns.Add("Id");
         settings.Columns.Add("FechaCreacion");
         settings.Columns.Add("FechaUltimaActualizacion");
+
+        settings.ClientSideEvents.FocusedRowChanged = "OnGridFocusedRowChanged";
     });
     if (ViewData["EditError"] != null){
         grid.SetEditErrorText((string)ViewData["EditError"]);
