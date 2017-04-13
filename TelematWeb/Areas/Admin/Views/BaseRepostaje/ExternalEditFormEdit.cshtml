@@ -1,0 +1,123 @@
+﻿@model TelematWeb.Areas.Admin.Models.FormsViewModel.BaseRepostajeViewModel
+
+<h2>@ViewData["Accion"].ToString()</h2>
+
+@using (Html.BeginForm("ExternalEditFormEdit", "BaseRepostaje", FormMethod.Post))
+{
+    @Html.DevExpress().FormLayout(settings =>
+{
+    settings.Name = "FormLayout";
+    settings.Width = System.Web.UI.WebControls.Unit.Percentage(80);
+    var groupDatosGenerales = settings.Items.AddGroupItem(groupSettings =>
+    {
+        groupSettings.Caption = "Datos Generales";
+        groupSettings.ShowCaption = DefaultBoolean.True;
+        groupSettings.GroupBoxDecoration = GroupBoxDecoration.HeadingLine;
+    });
+    //Settings Grupo
+    groupDatosGenerales.SettingsItems.ShowCaption = DefaultBoolean.True;
+    groupDatosGenerales.SettingsItemCaptions.Location = LayoutItemCaptionLocation.Left;
+    groupDatosGenerales.SettingsItemHelpTexts.Position = HelpTextPosition.Right;
+    //Fields
+    groupDatosGenerales.Items.Add(m => m.Nombre, item =>
+    {
+        item.HelpText = "Help text for Nombre";
+    });
+    groupDatosGenerales.Items.Add(m => m.Scu, item =>
+    {
+        item.HelpText = "Help text for Scu";
+    });
+    groupDatosGenerales.Items.Add(m => m.CodigoFlota, item =>
+    {
+        item.HelpText = "Help text for CodigoFlota";
+    });
+    groupDatosGenerales.Items.Add(m => m.CodigoControl, item =>
+    {
+        item.HelpText = "Help text for CodigoControl";
+    });
+    groupDatosGenerales.Items.Add(m => m.CAE, item =>
+    {
+        item.HelpText = "Help text for CAE";
+    });
+    groupDatosGenerales.Items.Add(m => m.Descripcion, item =>
+    {
+        item.HelpText = "Help text for Descripcion";
+    });
+
+    var groupDatosDireccion = settings.Items.AddGroupItem(groupSettings =>
+    {
+        groupSettings.Caption = "Datos Dirección";
+        groupSettings.ShowCaption = DefaultBoolean.True;
+        groupSettings.GroupBoxDecoration = GroupBoxDecoration.HeadingLine;
+    });
+    //Settings Grupo
+    groupDatosDireccion.SettingsItems.ShowCaption = DefaultBoolean.True;
+    groupDatosDireccion.SettingsItemCaptions.Location = LayoutItemCaptionLocation.Left;
+    groupDatosDireccion.SettingsItemHelpTexts.Position = HelpTextPosition.Right;
+    //Fields
+    groupDatosDireccion.Items.Add(m => m.Direccion, item =>
+    {
+        item.HelpText = "Help text for Direccion";
+    });
+    groupDatosDireccion.Items.Add(m => m.Poblacion, item =>
+    {
+        item.HelpText = "Help text for Poblacion";
+    });
+    groupDatosDireccion.Items.Add(m => m.CodigoPostal, item =>
+    {
+        item.HelpText = "Help text for CodigoPostal";
+    });
+    groupDatosDireccion.Items.Add(m => m.Delegacion, item =>
+    {
+        item.HelpText = "Help text for Delegacion";
+    });
+    groupDatosDireccion.Items.Add(m => m.ZonaHoraria, item =>
+    {
+        item.HelpText = "Help text for ZonaHoraria";
+    });
+
+    var groupDatosComunicaciones = settings.Items.AddGroupItem(groupSettings =>
+    {
+        groupSettings.Caption = "Datos Comunicaciones";
+        groupSettings.ShowCaption = DefaultBoolean.True;
+        groupSettings.GroupBoxDecoration = GroupBoxDecoration.HeadingLine;
+    });
+    //Settings Grupo
+    groupDatosComunicaciones.SettingsItems.ShowCaption = DefaultBoolean.True;
+    groupDatosComunicaciones.SettingsItemCaptions.Location = LayoutItemCaptionLocation.Left;
+    groupDatosComunicaciones.SettingsItemHelpTexts.Position = HelpTextPosition.Right;
+    //Fields
+    groupDatosComunicaciones.Items.Add(m => m.Telefono, item =>
+    {
+        item.HelpText = "Help text for Telefono";
+    });
+    groupDatosComunicaciones.Items.Add(m => m.Latitud, item =>
+    {
+        item.HelpText = "Help text for Latitud";
+    });
+    groupDatosComunicaciones.Items.Add(m => m.Longitud, item =>
+    {
+        item.HelpText = "Help text for Longitud";
+    });
+    groupDatosComunicaciones.Items.Add(m => m.PuertoComunicacion, item =>
+    {
+        item.HelpText = "Help text for PuertoComunicacion";
+    });
+    groupDatosComunicaciones.Items.Add(m => m.Baudios, item =>
+    {
+        item.HelpText = "Help text for Baudios";
+    });
+
+    settings.Items.Add(i =>
+    {
+        i.Caption = " ";
+        i.NestedExtension().Button(s =>
+        {
+            s.Name = "guardar";
+            s.Text = "Guardar";
+            s.UseSubmitBehavior = true;
+        });
+    });
+
+}).GetHtml()
+}

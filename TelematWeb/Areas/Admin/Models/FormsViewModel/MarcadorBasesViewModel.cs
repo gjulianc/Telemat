@@ -1,6 +1,6 @@
 ﻿namespace TelematWeb.Areas.Admin.Models.FormsViewModel
 {
-    public class MarkerMapBase
+    public class MarcadorBasesViewModel
     {
         public string Nombre { get; set; }
         public string Latitud { get; set; }

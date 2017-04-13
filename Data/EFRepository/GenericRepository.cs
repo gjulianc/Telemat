@@ -21,6 +21,7 @@ namespace Data.EFRepository
         public void Add(T entity)
         {
             DbSet.Add(entity);
+            this.Save();
         }
 
         public void Delete(T entity)

@@ -262,6 +262,7 @@
     <Content Include="Areas\Admin\Views\BaseRepostaje\_GridViewBasesPartial.cshtml" />
     <Content Include="Areas\Admin\Views\BaseRepostaje\_Mapa.cshtml" />
     <Content Include="Areas\Admin\Views\BaseRepostaje\PageControlPartial.cshtml" />
+    <Content Include="Areas\Admin\Views\BaseRepostaje\ExternalEditFormEdit.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -351,8 +352,9 @@
     <Compile Include="Areas\Admin\Controllers\EstadoDepositosController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\TransaccionesController.cs" />
+    <Compile Include="Areas\Admin\Models\FormsViewModel\BaseRepostajeViewModel.cs" />
     <Compile Include="Areas\Admin\Models\FormsViewModel\FilterBaseViewModel.cs" />
-    <Compile Include="Areas\Admin\Models\FormsViewModel\MarkerMapBase.cs" />
+    <Compile Include="Areas\Admin\Models\FormsViewModel\MarcadorBasesViewModel.cs" />
     <Compile Include="Areas\Admin\Models\FormsViewModel\TransaccionFilterViewModel.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\PagesController.BlogPosts.cs" />

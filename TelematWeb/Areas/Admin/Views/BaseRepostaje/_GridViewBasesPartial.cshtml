@@ -3,17 +3,6 @@
         settings.Name = "GridViewBases";
         settings.CallbackRouteValues = new { Controller = "BaseRepostaje", Action = "GridViewBasesPartial" };
 
-        settings.SettingsEditing.AddNewRowRouteValues = new { Controller = "BaseRepostaje", Action = "GridViewBasesPartialAddNew" };
-        settings.SettingsEditing.UpdateRowRouteValues = new { Controller = "BaseRepostaje", Action = "GridViewBasesPartialUpdate" };
-        settings.SettingsEditing.DeleteRowRouteValues = new { Controller = "BaseRepostaje", Action = "GridViewBasesPartialDelete" };
-        settings.SettingsEditing.Mode = GridViewEditingMode.EditFormAndDisplayRow;
-        settings.SettingsBehavior.ConfirmDelete = true;
-
-        settings.CommandColumn.Visible = true;
-        settings.CommandColumn.ShowNewButtonInHeader = true;
-        settings.CommandColumn.ShowDeleteButton = true;
-        settings.CommandColumn.ShowEditButton = true;
-
         settings.KeyFieldName = "Id";
 
         settings.SettingsPager.Visible = true;
@@ -29,29 +18,61 @@
         settings.SettingsAdaptivity.AllowOnlyOneAdaptiveDetailExpanded = false;
         settings.SettingsAdaptivity.HideDataCellsAtWindowInnerWidth = 0;
 
+        settings.Columns.Add(column =>
+        {
+            column.Caption = "#";
+            column.SetDataItemTemplateContent(c =>
+            {
+                ViewContext.Writer.Write(
+                    Html.ActionLink("Editar", "ExternalEditFormEdit",
+                    new { Id = DataBinder.Eval(c.DataItem, "Id") }) + "&nbsp;");
+
+            });
+            column.SetHeaderCaptionTemplateContent(c =>
+            {
+                ViewContext.Writer.Write(
+                    Html.ActionLink("Nuevo", "ExternalEditFormEdit",
+                    new { Id = -1 }).ToHtmlString()
+                );
+            });
+        });
+
         settings.Columns.Add("Scu");
         settings.Columns.Add("Nombre");
-        settings.Columns.Add("Direccion");
-        settings.Columns.Add("Poblacion");
-        settings.Columns.Add("CodigoPostal");
-        settings.Columns.Add("Delegacion");
-        settings.Columns.Add("ZonaHoraria");
+        settings.Columns.Add("Descripcion").Width = 200;
         settings.Columns.Add("Telefono");
-        settings.Columns.Add("PuertoComunicacion");
-        settings.Columns.Add("Baudios");
-        settings.Columns.Add("CodigoFlota");
-        settings.Columns.Add("CodigoControl");
         settings.Columns.Add("CAE");
-        settings.Columns.Add("Descripcion");
-        settings.Columns.Add("Latitud");
-        settings.Columns.Add("Longitud");
-        settings.Columns.Add("Depositos");
-        settings.Columns.Add("Id");
-        settings.Columns.Add("FechaCreacion");
-        settings.Columns.Add("FechaUltimaActualizacion");
+
+        settings.Columns.Add(column =>
+        {
+            column.Caption = "Acciones";
+            column.SetDataItemTemplateContent(c =>
+            {
+                ViewContext.Writer.Write(
+                    Html.ActionLink("Ver Depositos", "FormBaseRepostajeViewPartial",
+                    new { Id = DataBinder.Eval(c.DataItem, "Id") }) + "&nbsp;");
+
+            });
+        });
+
+        //settings.Columns.Add("Direccion");
+        //settings.Columns.Add("Poblacion");
+        //settings.Columns.Add("CodigoPostal");
+        //settings.Columns.Add("Delegacion");
+        //settings.Columns.Add("ZonaHoraria");
+        //settings.Columns.Add("PuertoComunicacion");
+        //settings.Columns.Add("Baudios");
+        //settings.Columns.Add("CodigoFlota");
+        //settings.Columns.Add("CodigoControl");
+        //settings.Columns.Add("Latitud");
+        //settings.Columns.Add("Longitud");
+        ////settings.Columns.Add("Depositos");
+        //settings.Columns.Add("Id");
+        ////settings.Columns.Add("FechaCreacion");
+        ////settings.Columns.Add("FechaUltimaActualizacion");
 
         settings.ClientSideEvents.FocusedRowChanged = "OnGridFocusedRowChanged";
-        
+
     });
     if (ViewData["EditError"] != null){
         grid.SetEditErrorText((string)ViewData["EditError"]);

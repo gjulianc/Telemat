@@ -3,17 +3,17 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Bases de Repostaje</h2>
+<h2>Estaciones Base de Repostaje</h2>
 
 <script type="text/javascript">
 
     function OnGridFocusedRowChanged(s, e) {
-        alert('Estamos en la primera funcion');
+        //alert('Estamos en la primera funcion');
         s.GetRowValues(s.GetFocusedRowIndex(), 'Nombre;Latitud;Longitud', OnGetRowValues);
     }
 
     function OnGetRowValues(values) {
-        alert('Estamos en la base: ' + values[0] + ' ' + values[1] + ',' + values[2]);
+        //alert('Estamos en la base: ' + values[0] + ' ' + values[1] + ',' + values[2]);
         document.getElementsByName("nombre").value =  values[0];
         
     }
@@ -24,16 +24,16 @@
 </div>
 <br />
 <br />
- 
-<div >
+<div style="display:inline">
     @Html.Action("CargaMapa", new
-{
-    item = new MarkerMapBase
     {
-        Nombre = "Argabus",
-        Latitud = "40.297166",
-        Longitud = "-3.429771"
-    }
-    }))
+        item = new MarcadorBasesViewModel
+        {
+            Nombre = "Argabus",
+            Latitud = "40.297166",
+            Longitud = "-3.429771"
+        }
+    })
 </div>
+   
 

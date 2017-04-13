@@ -1,6 +1,6 @@
-﻿@model TelematWeb.Areas.Admin.Models.FormsViewModel.MarkerMapBase
+﻿@model TelematWeb.Areas.Admin.Models.FormsViewModel.MarcadorBasesViewModel
 
-<div id="map" style="width:900px; height:350px;"></div>
+<div id="map" style="width:auto; height:350px;"></div>
 <label>Nombre: </label>
 <label>@Model.Nombre</label>
 <label>Latitud: </label>
@@ -15,24 +15,13 @@
         var map = new google.maps.Map(document.getElementById('map'), {
             zoom: 12,
             center: uluru 
-        });
-
-        
+        });        
         var marker = new google.maps.Marker({
             position: uluru,
             map: map
         });
         // Make the marker-pin blue! 
         marker.setIcon('http://maps.google.com/mapfiles/ms/icons/blue-dot.png')
-
-        // put in some information about each json object - in this case, the opening hours. 
-        var infowindow = new google.maps.InfoWindow({
-            content: "<div class='infoDiv'><h2>" + @Model.Nombre + "</div></div>"
-        });
-        // finally hook up an "OnClick" listener to the map so it pops up out info-window when the marker-pin is clicked! 
-        google.maps.event.addListener(marker, 'click', function () {
-            infowindow.open(map, marker);
-        });
     };
     
     MVCxClientGlobalEvents.ControlsInitialized.AddHandler(function (s, e) {
@@ -40,4 +29,4 @@
     });
 </script>
 
-<script   async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDc18sN0gVECb_pyMbRd9Qu3sVO7cSqqE4"></script>
+<script  id="dxis_MyCode" async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDc18sN0gVECb_pyMbRd9Qu3sVO7cSqqE4"></script>
